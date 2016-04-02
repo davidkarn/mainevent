@@ -39,7 +39,7 @@ define([
         }, React.createElement('video', { 'id': 'localVideo' }), React.createElement('div', { 'id': 'remotesVideos' })), React.createElement('div', { 'id': 'main' }), React.createElement('div', { 'id': 'smaller' })), React.createElement('h1', {}, 'The Startup Weekends'), React.createElement('small', {}, 'Playing at Seattle City Hall'), React.createElement.apply(this, [
             'div',
             { 'id': 'chatroom' },
-            _.map(this.state.messages, repeatMessage2.bind(this)),
+            _.map(this.state.messages.slice(-15), repeatMessage2.bind(this)),
             React.createElement('div', { 'id': 'enter-message' }, React.createElement('textarea', { 'ref': 'entering_message' }))
         ])));
     };

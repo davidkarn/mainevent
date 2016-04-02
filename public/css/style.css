@@ -74,10 +74,10 @@
 
 #enter-message {
   background: #fafafa;
-  position:absolute;
+  position:fixed;
   padding: 20px;
-  left:0;
   right:0;
+  width: 30%;
   bottom:0;
   height: 100px;
   border-top: 1px solid #eee; }

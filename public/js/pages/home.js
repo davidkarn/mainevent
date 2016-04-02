@@ -10,13 +10,49 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
     var getUserMedia = navigator.getUserMedia
         || navigator.webkitGetUserMedia
         || navigator.mozGetUserMedia;
+
+    var people = [{name: 'david', email: 'david@webdever.net'},
+                  {name: 'bill123142', email: ''},
+                  {name: 'Jim Jones', email: ''},
+                  {name: 'Colonels4nders', email: ''},
+                  {name: 'Bernie Sandars', email: ''}];
+    var messages = ['Awesome show',
+                    'I cant believe he just did that',
+                    'What?',
+                    'hello',
+                    'what are you talking about?',
+                    'thats awful',
+                    'wtf',
+                    ':D',
+                    ':p',
+                    '!!!!!!!',
+                    'I am amazed by this',
+                    'hi i am typing a message into a chatroom',
+                    'hi, I am not a real person',
+                    'i am a real person'];
+
+    function random_list_member(list) {
+        return list[Math.floor(Math.random() * list.length)]; }
+    
+    function generate_message() {
+        var person = random_list_member(people);
+        var message = random_list_member(messages);
+        me.state.messages.push({name: person.name,
+                                email: person.email,
+                                message: message}); 
+        me.setState({messages: me.state.messages}); }
+
+    function chat() {
+        generate_message();
+        setTimeout(chat, Math.random() * 2000); }
     
     function render() {
         return home_template.apply(this, arguments); }
 
     function setup() {
         me = this;
-        return init_demo();
+        chat();
+//        return init_demo();
         if (this.state.we_setup) return;
         this.state.we_setup = true;
         if (this.props.params.show_id)
@@ -109,7 +145,7 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
                              messages:             [
                                  {name: 'David Karn', email: 'david@webdever.net',
                                   message: 'this is a test chat message'},
-                                 {name: 'David Karn', email: 'david@webdever.net',
+                                /* {name: 'David Karn', email: 'david@webdever.net',
                                   message: 'this is a test chat message'},
                                  {name: 'David Karn', email: 'david@webdever.net',
                                   message: 'this is a test chat message'},
@@ -128,7 +164,7 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
                                  {name: 'David Karn', email: 'david@webdever.net',
                                   message: 'this is a test chat message'},
                                  {name: 'David Karn', email: 'david@webdever.net',
-                                  message: 'this is a test chat message'}],
+                                  message: 'this is a test chat message'}*/],
                              focused_participant:   participants[0]}); 
 
                 (next || do_nothing)(); },
@@ -162,6 +198,7 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
         make_big:             make_big,
         getInitialState:      returner({show_id:      (query_parameter('show_id') || 'mainevent_id_' + Math.random().toString().slice(3)),
                                         participants:  [],
-                                        chat:          [],                                        
+                                        chat:          [],
+                                        messages:      [],
                                         log:           []}),
         render:               render}); });

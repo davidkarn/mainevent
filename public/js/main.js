@@ -40,6 +40,6 @@ requirejs(['react', 'react_router', 'view'], function (React, Router, view) {
 
     Router.run(build_routes(), function(Handler) {
         React.render(React.createElement(Handler, null),
-                     document.querySelector("#steve-body")); }); });
+                     document.querySelector("#main-body")); }); });
 
 

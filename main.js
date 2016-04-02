@@ -12,7 +12,6 @@ var names           = [];
 var courses         = [];
 var assignments     = [];
 
-
 app.listen(port);
 
 function curry(that) {
@@ -51,7 +50,6 @@ if (env == 'production') {}
 
 app.use(cookieParser());
 app.use(bodyParser());
-app.use(methodOverride());
 app.use(session({ secret:               'alkfjdsklfjdas23440392qhfaewgfhp',
                   saveUninitialized:     true,
                   resave:                true}));
@@ -74,7 +72,6 @@ function member_i(ar, value) {
         if (cmpi(ar[i], value))
             return ar[i];
     return false; }   
-
 
 function do_in_sequence(fns, last) {
     function go() {

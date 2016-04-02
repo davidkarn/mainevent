@@ -367,3 +367,66 @@ function object_in_list(object, list) {
 
 function joiner(a1, a2) {
     return a1.concat(a2); }
+
+
+    var get_user_media = (navigator.getUserMedia 
+		          || navigator.webkitGetUserMedia
+		          || navigator.mozGetUserMedia);
+
+    function user_media () {
+        get_user_media.apply(navigator, 
+		             arguments); }
+
+    function link_user_media(next, options) {
+        options = options || {};
+        return user_media(array_merge({video: false, audio: true},
+                                      options),
+	                  function (stream) {
+		              next(stream); },
+                          options.error || do_nothing); }
+
+    function link_video(el, stream) {
+        el.src = URL.createObjectURL(stream); }
+    
+
+function array_intersect(a1, a2) {
+    var intersection = [];
+    for (var i in a1)
+        if (member(a2, a1[i]))
+            intersection.push(a1[i]);
+    return intersection; }
+
+function array_merge(a1, a2) {
+    var a1 = clone(a1);
+    for (var i in a2)
+        a1[i] = a2[i];
+    return a1; }
+
+function members_not_in(from, inn) {
+    var exceptions = [];
+    for (var i in from)
+        if (!member(inn, from[i]))
+            exceptions.push(from[i]);
+    return exceptions; }
+
+
+function extractor() {
+    var fields = to_array(arguments);
+    return function(obj) {
+        var extracted = {};
+        for (var i in fields)
+            extracted[fields[i]] = obj[fields[i]];
+        return extracted; }; }
+
+function print() {
+    console.log(arguments); }
+
+function is_empty_object(o)  {
+    if (!(typeof o == "object")
+        || (o instanceof Array))
+        return false;
+
+    var j = 0;
+    for (var i in o)
+        j++;
+    return j == 0; }

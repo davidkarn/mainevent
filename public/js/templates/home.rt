@@ -1,43 +1,44 @@
 <div>
   <div class="wrap">
-    <header>
-      <div class="dropdown" style="float:right;">
-        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="background:none;border:0;box-shadow:none;font-size:2em;color:#333;opacity:0.6">
-          <i class="fa fa-bars"></i>
-        </button>
-        <ul class="dropdown-menu"  >
-          <li><a href="#">HTML</a></li>
-          <li><a href="#">CSS</a></li>
-          <li><a href="#">JavaScript</a></li>
-        </ul>
-      </div>
-      
-      <div class="logo" style="text-align:center;">
-    	
-    	<img src="images/steve-logo.png" class="mic_image" id="logo" onClick="{this.toggle_mic}">
-        <img src="images/steve-logo-recording-with-mic.png" class="mic_image" id="logo_mic" onClick="{this.toggle_mic}">
-      </div>
-      
-      <span class="title" style="text-indent:-50px; margin-top:20px;"></span>
-      <br /><br />
-      <div id="response">
-        <div rt-if="this.state.grading">
-          Grading: {this.state.grading}
+    <div id="video">
+      <div id="call_popup_main">
+        <div id="main_stream" ref="video_container" rt-if="this.state.focused_participant">
+          <video id="focused_video"
+                 muted="muted"
+                 autoplay="autoplay"
+                 src="{this.state.focused_participant.src}"></video>
+          <div id="participant-info">
+            <div class="participant-name">
+              {this.state.focused_participant.name}
+            </div>
+            <div class="crm-link">
+              <img src="../images/salesforce.png" />
+              <a href="http://salesforce.com/">(Lead) {this.state.focused_participant.name}</a>
+            </div>
+          </div>
         </div>
-        <div rt-if="this.state.course">
-          Course: {this.state.course}<span rt-if="this.state.dictating">, 
-          dictating for {this.state.dictating}
-          </span>
-          <p>
-            {this.state.note}
-          </p>
+        <div id="participants">
+          <div class="call-participant"
+               rt-repeat="participant in this.get_participants()">
+            <div class="video-wrapper2">
+              <div class="video-wrapper">
+                <video id="local_video"
+                       muted="{participant.has_audio ? 'false' : 'muted'}"
+                       src="{participant.src}"
+                       autoplay="autoplay"></video>
+              </div>
+            </div>
+            <div class="participant-name">{participant.name}</div>
+          </div>
         </div>
-        <ul style="font-size:1.5em;padding:0;">
-          <li rt-repeat="item in this.state.log" style="list-style:none;text-indent:none;">
-            {item}
-          </li>
-        </ul>
       </div>
-    </header>
+    </div>
+    <div id="chatroom">
+      <div class="message"
+           rt-repeat="message in messages">
+        <strong class="name">{message.name}</strong>
+        <p>{message.message}</p>
+      </div>
+    </div>
   </div>
 </div>

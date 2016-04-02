@@ -1,6 +1,8 @@
 <div>
   <div class="wrap">
     <div id="video">
+      <h1>The Startup Weekends</h1>
+      <small>Playing at Seattle City Hall</small>
       <div id="call_popup_main">
         
         <div id="main_stream" ref="video_container" rt-if="this.state.focused_participant">
@@ -9,12 +11,8 @@
                  autoplay="autoplay"
                  src="{this.state.focused_participant.src}"></video>
           <div id="participant-info">
-            <div class="participant-name">
+            <div class="participant-name hidden">
               {this.state.focused_participant.name}
-            </div>
-            <div class="crm-link">
-              <img src="../images/salesforce.png" />
-              <a href="http://salesforce.com/">(Lead) {this.state.focused_participant.name}</a>
             </div>
           </div>
         </div>
@@ -29,23 +27,20 @@
                        autoplay="autoplay"></video>
               </div>
             </div>
-            <div class="participant-name">{participant.name}</div>
+            <div class="participant-name hidden">{participant.name}</div>
           </div>
         </div>
       </div>
-      <div id="container">
+      <div id="container" style="display:none">
+        <video id="localVideo">
+        </video>
+        <div id="remotesVideos">
+        </div>
       </div>
       <div id="main">
       </div>
       <div id="smaller">
       </div>
-            <video id="localVideo">
-      </video>
-            <video id="miniVideo">
-      </video>
-            <video id="remoteVideo">
-      </video>
-
     </div>
     <div id="chatroom">
       <div class="message"

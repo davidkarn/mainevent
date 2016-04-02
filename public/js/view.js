@@ -5,7 +5,7 @@ define(['react', 'lodash', 'react_router', 'pages/home', 'templates/home.rt'], f
         render: function() {
             return React.createElement(Router.RouteHandler, null); }});
 
-    var routes = {"":                         home,
+    var routes = {"show/:show_id":                         home,
                   "home":                     home};
     console.log(app, home, home_template);
 

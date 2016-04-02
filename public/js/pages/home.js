@@ -3,19 +3,20 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
     var local_stream;
     var connection;
     var me;
+    var sessions = {};
+    var session;
 
     function render() {
         return home_template.apply(this, arguments); }
 
     function setup() {
+        if (this.props.params.show_id)
+            this.state.show_id = this.props.params.show_id;
         me = this;
         init_demo();
         connection = new RTCMultiConnection();
 //        connection.socketURL = 'http://' + my_host + ':9001';
         connection.socketURL = 'https://rtcmulticonnection.herokuapp.com:443/';
-        connection.socketMessageEvent = 'video-conference-demo';
-
-        var roomid = this.state.room_id;
 
         connection.session = {
             audio: true,
@@ -29,26 +30,45 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
         console.log(me.refs);
 
         connection.onstream = function(event) {
-            console.log(event);
-            connection.videosContainer.appendChild(event.mediaElement);
+            console.log('stream', event);
+            console.log(event.type == "local", !event.stream.isVideo);
+            if (event.type == "local" || !event.stream.isVideo) return;
+            var src = event.mediaElement.src;
+            me.add_participant("Test Person", src, event); }
+//            connection.videosContainer.appendChild(event.mediaElement);
 
-            setTimeout(function() {
-                event.mediaElement.play();
-            }, 5000); };
+        connection.onNewSession = function(session) {
+            console.log('session', session);
+           /* if (sessions[session.sessionid]) return;
+            sessions[session.sessionid] = session;
 
-        if (this.state.show_id)
-            connection.join(this.state.show_id); }
+            if (session.sessionid == me.state.show_id) {
+                session = sessions[sessionid];
+                connection.join(session);
+            };*/
+        };        
 
-    function init_demo() {
+        connection.connect();
+        connection.openOrJoin(me.state.show_id, print); }
+/*        setTimeout(function() {
+            if (me.state.show_id && !session) {
+                console.log('open', me.state.show_id);
+                connection.open(me.state.show_id);
+                connection.join('asdf' + Math.random().toString().slice(3)); }},
+                   1000); }*/
+
+    function init_demo(next) {
         link_user_media(
             function(stream) {
-                local_stream = stream; },
+                local_stream = stream;
+                (next || do_nothing)(); },
             {video: true}); }
 
-    function add_participant(name, src, ranking) {
+    function add_participant(name, src, event, ranking) {
         ranking = ranking || Math.random * 10;
-        this.state.participants = this.state.participants.push(
+        this.state.participants.push(
             {name: name,
+             event: event,
              src: src,
              ranking: ranking});
         this.setState({participants: participants}); }

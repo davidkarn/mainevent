@@ -30,7 +30,7 @@ define([
         ]))), React.createElement.apply(this, [
             'div',
             { 'id': 'chatroom' },
-            _.map(messages, repeatMessage2.bind(this))
+            _.map(this.state.messages, repeatMessage2.bind(this))
         ])));
     };
 });

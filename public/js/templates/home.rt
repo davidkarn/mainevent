@@ -35,7 +35,7 @@
     </div>
     <div id="chatroom">
       <div class="message"
-           rt-repeat="message in messages">
+           rt-repeat="message in this.state.messages">
         <strong class="name">{message.name}</strong>
         <p>{message.message}</p>
       </div>

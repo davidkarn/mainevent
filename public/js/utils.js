@@ -430,3 +430,20 @@ function is_empty_object(o)  {
     for (var i in o)
         j++;
     return j == 0; }
+
+
+function query_parameters() {
+    var params   = {};
+    var s        = window.location.href.split('?');
+    if (!s[1]) return {};
+
+    var lines   = s[1].split('&');
+    lines.map(function(line) {
+        var param = line.split('=');
+        if (param[0] && param[1])
+            params[param[0]] = decodeURIComponent(param[1] || ''); });
+
+    return params; }
+
+function query_parameter(key) {
+    return (query_parameters() || {})[key]; }

@@ -65,7 +65,7 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
         componentWillMount:   setup,
         get_participants:     get_participants,
         add_participant:      add_participant,
-        getInitialState:      returner({show_id:      'mainevent_id_' + Math.random().toString().slice(3),
+        getInitialState:      returner({show_id:      (query_parameter('show_id') || 'mainevent_id_' + Math.random().toString().slice(3)),
                                         participants:  [],
                                         chat:          [],                                        
                                         log:           []}),

@@ -27,7 +27,7 @@ define([
             'div',
             { 'id': 'participants' },
             _.map(this.get_participants(), repeatParticipant1.bind(this))
-        ]))), React.createElement.apply(this, [
+        ])), React.createElement('div', { 'id': 'container' }), React.createElement('div', { 'id': 'main' }), React.createElement('div', { 'id': 'smaller' }), React.createElement('video', { 'id': 'localVideo' }), React.createElement('video', { 'id': 'miniVideo' }), React.createElement('video', { 'id': 'remoteVideo' })), React.createElement.apply(this, [
             'div',
             { 'id': 'chatroom' },
             _.map(this.state.messages, repeatMessage2.bind(this))

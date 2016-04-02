@@ -2,6 +2,7 @@
   <div class="wrap">
     <div id="video">
       <div id="call_popup_main">
+        
         <div id="main_stream" ref="video_container" rt-if="this.state.focused_participant">
           <video id="focused_video"
                  muted="muted"
@@ -32,6 +33,19 @@
           </div>
         </div>
       </div>
+      <div id="container">
+      </div>
+      <div id="main">
+      </div>
+      <div id="smaller">
+      </div>
+            <video id="localVideo">
+      </video>
+            <video id="miniVideo">
+      </video>
+            <video id="remoteVideo">
+      </video>
+
     </div>
     <div id="chatroom">
       <div class="message"

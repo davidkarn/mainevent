@@ -144,6 +144,9 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
              ranking: ranking});
         this.setState({participants: this.state.participants}); }
 
+    function make_big(participant) {
+        this.setState({focused_participant: participant}); }
+
     function get_participants() {
         return this.state.participants; }
     
@@ -156,6 +159,7 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
         componentDidMount:    setup,
         get_participants:     get_participants,
         add_participant:      add_participant,
+        make_big:             make_big,
         getInitialState:      returner({show_id:      (query_parameter('show_id') || 'mainevent_id_' + Math.random().toString().slice(3)),
                                         participants:  [],
                                         chat:          [],                                        

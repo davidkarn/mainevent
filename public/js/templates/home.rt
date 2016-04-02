@@ -1,8 +1,6 @@
 <div>
   <div class="wrap">
     <div id="video">
-      <h1>The Startup Weekends</h1>
-      <small>Playing at Seattle City Hall</small>
       <div id="call_popup_main">
         
         <div id="main_stream" ref="video_container" rt-if="this.state.focused_participant">
@@ -19,7 +17,8 @@
         <div id="participants">
           <div class="call-participant"
                rt-repeat="participant in this.get_participants()">
-            <div class="video-wrapper2">
+            <div class="video-wrapper2"
+                 onClick="{this.make_big.bind(this, participant)}">
               <div class="video-wrapper">
                 <video id="local_video"
                        muted="{participant.has_audio ? 'false' : 'muted'}"
@@ -42,11 +41,21 @@
       <div id="smaller">
       </div>
     </div>
+            <h1>The Startup Weekends</h1>
+      <small>Playing at Seattle City Hall</small>
+
     <div id="chatroom">
       <div class="message"
            rt-repeat="message in this.state.messages">
-        <strong class="name">{message.name}</strong>
-        <p>{message.message}</p>
+        <img class="avatar" src="{lookup_gravatar(message.email, 70)}" />
+        <div class="message-part">
+          <strong class="name">{message.name}</strong><br />
+          <span> {message.message}</span>
+        </div>
+      </div>
+      <div id="enter-message">
+        <textarea ref="entering_message">
+        </textarea>
       </div>
     </div>
   </div>

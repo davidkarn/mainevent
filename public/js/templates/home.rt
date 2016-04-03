@@ -134,7 +134,7 @@
         </div>
       </div>
       <div id="enter-message">
-        <textarea ref="entering_message">
+        <textarea ref="entering_message" onKeyPress="{this.chat_key_press}">
         </textarea>
       </div>
     </div>

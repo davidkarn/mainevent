@@ -291,6 +291,13 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
     function go_to_(where_to)  {
         running_timer = false;
         this.state.we_setup = false;
+        me.state = {show_id:      (query_parameter('show_id') || 'mainevent_id_' + Math.random().toString().slice(3)),
+                                        participants:  [],
+                                        chat:          [],
+                                        giving_tip:    false,
+                                        messages:      [],
+                                        artist: {},
+                                        log:           []};
         go_to(where_to); }
 
     function get_props(new_props) {
@@ -307,10 +314,22 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
                 || navigator.mozGetUserMedia;
         this.state.we_setup = false;
         this.setup(); }
+
+    function chat_key_press(e){
+        var key=e.keyCode || e.which;
+        var message = ref_value(this.refs.entering_message);
+        if (key==13){
+            this.state.messages.push({name: 'David Karn',
+                                      url: lookup_gravatar('david@webdever.net', 70),
+                                      email: 'david@webdever.net',
+                                      message: message});
+            this.setState({messages: this.state.messages});
+            ref_set_value(this.refs.entering_message, ""); }}
     
     return React.createClass({
         displayName:         'home',
         go_to:                go_to_,
+        chat_key_press:       chat_key_press,
         setup:                setup,
         give_a_tip:           give_a_tip,
         gave_a_tip:           gave_a_tip,

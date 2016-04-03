@@ -81,7 +81,10 @@ define([
             'div',
             { 'id': 'chatroom' },
             _.map(this.state.messages.slice(-15), repeatMessage2.bind(this)),
-            React.createElement('div', { 'id': 'enter-message' }, React.createElement('textarea', { 'ref': 'entering_message' }))
+            React.createElement('div', { 'id': 'enter-message' }, React.createElement('textarea', {
+                'ref': 'entering_message',
+                'onKeyPress': this.chat_key_press
+            }))
         ])));
     };
 });

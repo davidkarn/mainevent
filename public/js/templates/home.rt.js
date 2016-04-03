@@ -73,11 +73,7 @@ define([
             'src': '/images/facebook.png',
             'onClick': this.gave_a_tip,
             'id': 'fb-signin'
-        })) : null), React.createElement('video', {
-            'src': '/images/video4.webm',
-            'autoPlay': 'autoplay',
-            'style': { display: 'none' }
-        }), React.createElement.apply(this, [
+        })) : null), !this.state.countdown ? React.createElement('video', { 'src': '/images/video4.webm' }, '\n           autoplay="autoplay" style="display:none"/>\n    ', React.createElement.apply(this, [
             'div',
             { 'id': 'chatroom' },
             _.map(this.state.messages.slice(-15), repeatMessage2.bind(this)),
@@ -85,6 +81,6 @@ define([
                 'ref': 'entering_message',
                 'onKeyPress': this.chat_key_press
             }))
-        ])));
+        ])) : null));
     };
 });

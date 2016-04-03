@@ -42,7 +42,10 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
          venue: 'Neumos'},
         {name: 'OnTourage',
          image: '/images/startup_weekend.jpg',
-         venue: 'Startup Weekend Seattle Music'}];
+         venue: 'Startup Weekend Seattle Music'},
+        {name: "wimps",
+         venue: "Columbia City Theater",
+         image: "/images/video6.webm"}];
     
     var people = [{name: 'david', email: 'david@webdever.net', url: lookup_gravatar('david@webdever.net', 70)},
                   {name: 'bill123142', email: '', url: 'https://yt3.ggpht.com/-AbhjhawAzT4/AAAAAAAAAAI/AAAAAAAAAAA/dHjAHcytyJ8/s48-c-k-no-rj-c0xffffff/photo.jpg'},
@@ -173,12 +176,14 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
         setTimeout(check_participants, 400); }
 
     function lookup_participants() {
+        $('#localVideo').attr('muted', 'muted');
         if (!$('#localVideo').attr('src')) return;
         var participants = [{local:      true,
                              src:      $('#localVideo').attr('src'),
                              name:      'me'}];
         participants = [];
         $('#remotesVideos').children().map(function(i, el) {
+            $(el).attr('muted', 'muted');
             participants.push({src:    el.src,
                                name:  'name'}); });
         me.setState({participants:          participants,

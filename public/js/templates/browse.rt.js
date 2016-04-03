@@ -22,6 +22,14 @@ define([
             'className': 'fa fa-search'
         }))), React.createElement('div', {
             'className': 'a-video',
+            'onClick': this.go_to.bind(this, '/show/test/test/11')
+        }, React.createElement('strong', { 'className': 'title' }, 'Wimps', React.createElement('br', {}), React.createElement('small', {}, 'Columbia City Theater')), React.createElement('div', { 'className': 'live-now' }, 'Live now'), React.createElement('div', { 'className': 'a-video-wrapper' }, React.createElement('video', {
+            'src': '/images/video6.webm',
+            'loop': 'loop',
+            'autoPlay': 'autoplay',
+            'muted': 'muted'
+        }))), React.createElement('div', {
+            'className': 'a-video',
             'onClick': this.go_to.bind(this, '/show/test/test/1')
         }, React.createElement('strong', { 'className': 'title' }, 'TacocaT', React.createElement('br', {}), React.createElement('small', {}, 'Doc Marten\'s')), React.createElement('div', { 'className': 'live-now' }, 'Live now'), React.createElement('div', { 'className': 'a-video-wrapper' }, React.createElement('video', {
             'src': '/images/video4.webm',
@@ -37,15 +45,13 @@ define([
             'loop': 'loop',
             'autoPlay': 'autoplay',
             'muted': 'muted'
-        }))), React.createElement('div', {
-            'className': 'a-video',
-            'onClick': this.go_to.bind(this, '/show/test/test/2')
-        }, React.createElement('strong', { 'className': 'title' }, 'Camp Lo', React.createElement('br', {}), React.createElement('small', {}, 'Tractor Tavern')), React.createElement('div', { 'className': 'live-now' }, 'Live now'), React.createElement('div', { 'className': 'a-video-wrapper' }, React.createElement('video', {
-            'src': '/images/video1.webm',
-            'loop': 'loop',
-            'autoPlay': 'autoplay',
-            'muted': 'muted'
-        }))), React.createElement('div', {
+        })))    /*  -div class="a-video" onClick="{this.go_to.bind(this, '/show/test/test/2')}">
+        <strong class="title">Camp Lo<br /><small>Tractor Tavern</small></strong>
+        <div class="live-now">Live now</div>
+        <div class="a-video-wrapper">
+          <video src="/images/video1.webm" loop="loop" autoplay="autoplay" muted="muted" />
+        </div>
+      </div */, React.createElement('div', {
             'className': 'a-video',
             'onClick': this.go_to.bind(this, '/show/test/test/3')
         }, React.createElement('strong', { 'className': 'title' }, 'Lion\'s Ambition', React.createElement('br', {}), React.createElement('small', {}, 'The Showbox')), React.createElement('div', { 'className': 'live-now' }, 'Live now'), React.createElement('div', { 'className': 'a-video-wrapper' }, React.createElement('video', {
@@ -63,6 +69,15 @@ define([
             'muted': 'muted'
         }))), React.createElement('div', {
             'className': 'a-video',
+            'onClick': this.go_to.bind(this, '/show/test/countdown/7')
+        }, React.createElement('strong', { 'className': 'title' }, 'Blue Scholars', React.createElement('br', {}), React.createElement('small', {}, 'Nippon Kan')), React.createElement('div', { 'className': 'live-now' }, 'Live in 15m'), React.createElement('div', { 'className': 'a-video-wrapper' }, React.createElement('img', {
+            'src': 'https://i.ytimg.com/vi/p8rzHTHKvKs/maxresdefault.jpg',
+            'className': 'video',
+            'muted': 'muted',
+            'loop': 'loop',
+            'autoPlay': 'autoplay'
+        }))), React.createElement('div', {
+            'className': 'a-video',
             'onClick': this.go_to.bind(this, '/show/test/countdown/5')
         }, React.createElement('strong', { 'className': 'title' }, 'Band of Horses', React.createElement('br', {}), React.createElement('small', {}, 'The Triple Crocodile')), React.createElement('div', { 'className': 'live-now' }, 'Live in 8m'), React.createElement('div', { 'className': 'a-video-wrapper' }, React.createElement('img', {
             'className': 'video',
@@ -77,15 +92,6 @@ define([
             'src': '/images/grand_archives.jpg',
             'autoPlay': 'autoplay',
             'muted': 'muted'
-        }))), React.createElement('div', {
-            'className': 'a-video',
-            'onClick': this.go_to.bind(this, '/show/test/countdown/7')
-        }, React.createElement('strong', { 'className': 'title' }, 'Blue Scholars', React.createElement('br', {}), React.createElement('small', {}, 'Nippon Kan')), React.createElement('div', { 'className': 'live-now' }, 'Live in 15m'), React.createElement('div', { 'className': 'a-video-wrapper' }, React.createElement('img', {
-            'src': 'https://i.ytimg.com/vi/p8rzHTHKvKs/maxresdefault.jpg',
-            'className': 'video',
-            'muted': 'muted',
-            'loop': 'loop',
-            'autoPlay': 'autoplay'
         }))), React.createElement('div', {
             'className': 'a-video',
             'onClick': this.go_to.bind(this, '/show/test/countdown/8')

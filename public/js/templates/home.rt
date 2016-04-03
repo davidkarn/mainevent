@@ -51,20 +51,20 @@
     <div id="who">
       <div  class="pull-right">
         <div class="tip-button"
-             onClick="{this.give_a_tip.bind(this, 2)}">
-          2$
-        </div>
-        <div class="tip-button"
-             onClick="{this.give_a_tip.bind(this, 5)}">
-          5$
-        </div>
-        <div class="tip-button"
-             onClick="{this.give_a_tip.bind(this, 10)}">          
+             onClick="{this.give_a_tip.bind(this, 10)}">
           10$
-        </div>      
+        </div>
         <div class="tip-button"
-             onClick="{this.give_a_tip.bind(this, 20)}">
+             onClick="{this.give_a_tip.bind(this, 15)}">
+          15$
+        </div>
+        <div class="tip-button"
+             onClick="{this.give_a_tip.bind(this, 20)}">          
           20$
+        </div>      
+        <div class="tip-button" style="width: 86px"
+             onClick="{this.give_a_tip.bind(this, 8)}">
+          custom
         </div>
       </div>
       <h1>The Startup Weekends</h1>

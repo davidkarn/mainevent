@@ -49,8 +49,44 @@
       </div>
     </div>
     <div id="who">
+      <div  class="pull-right">
+        <div class="tip-button"
+             onClick="{this.give_a_tip.bind(this, 2)}">
+          2$
+        </div>
+        <div class="tip-button"
+             onClick="{this.give_a_tip.bind(this, 5)}">
+          5$
+        </div>
+        <div class="tip-button"
+             onClick="{this.give_a_tip.bind(this, 10)}">          
+          10$
+        </div>      
+        <div class="tip-button"
+             onClick="{this.give_a_tip.bind(this, 20)}">
+          20$
+        </div>
+      </div>
       <h1>The Startup Weekends</h1>
       <small>Playing at Seattle City Hall</small>
+    </div>
+    <div id="give-tip" class="{this.state.giving_tip ? '' : ''}">
+      <div rt-if="this.state.gave_tip">
+        <h1 style="margin: 0;">Thank You!</h1>
+        <h3>Gave a ${this.state.tip_amount} tip!</h3>
+      </div>
+      <div rt-if="!this.state.gave_tip">
+        <h1>Tip "The Startup Weekends" ${this.state.tip_amount}</h1>
+        <span>
+          Please log in or create a new account to continue.<br /><br />
+        </span>
+        <img src="/images/google.png"
+             onClick="{this.gave_a_tip}"
+             id="google-signin" />
+        <img src="/images/facebook.png"
+             onClick="{this.gave_a_tip}"
+             id="fb-signin" />
+      </div>
     </div>
     <div id="chatroom">
       <div class="message"

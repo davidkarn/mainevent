@@ -87,6 +87,7 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
         setTimeout(check_participants, 400); }
 
     function lookup_participants() {
+        if (!$('#localVideo').attr('src')) return;
         var participants = [{local:      true,
                              src:      $('#localVideo').attr('src'),
                              name:      'me'}];
@@ -193,6 +194,18 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
     function make_big(participant) {
         this.setState({focused_participant: participant}); }
 
+    function give_a_tip(how_much) {
+        this.setState({gave_tip: false});
+        $('#give-tip').animate({opacity: 1, top: '100px'}, 400);
+        this.setState({tip_amount: how_much}); }
+
+    function gave_a_tip() {
+        this.setState({gave_tip: true});
+        $('#give-tip').animate({opacity: 0, top: '30px'}, 600,
+                               "linear",
+                                function() {
+                                    me.setState({gave_tip: true});}); }
+
     function get_participants() {
         return this.state.participants; }
     
@@ -202,6 +215,8 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
     return React.createClass({
         displayName:         'home',
         go_to:                go_to,
+        give_a_tip:           give_a_tip,
+        gave_a_tip:           gave_a_tip,
         componentDidMount:    setup,
         get_participants:     get_participants,
         add_participant:      add_participant,
@@ -209,6 +224,7 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
         getInitialState:      returner({show_id:      (query_parameter('show_id') || 'mainevent_id_' + Math.random().toString().slice(3)),
                                         participants:  [],
                                         chat:          [],
+                                        giving_tip:    false,
                                         messages:      [],
                                         log:           []}),
         render:               render}); });

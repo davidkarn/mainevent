@@ -42,7 +42,30 @@ define([
         ])), React.createElement('div', {
             'id': 'container',
             'style': { display: 'none' }
-        }, React.createElement('video', { 'id': 'localVideo' }), React.createElement('div', { 'id': 'remotesVideos' })), React.createElement('div', { 'id': 'main' }), React.createElement('div', { 'id': 'smaller' })), React.createElement('div', { 'id': 'who' }, React.createElement('h1', {}, 'The Startup Weekends'), React.createElement('small', {}, 'Playing at Seattle City Hall')), React.createElement.apply(this, [
+        }, React.createElement('video', { 'id': 'localVideo' }), React.createElement('div', { 'id': 'remotesVideos' })), React.createElement('div', { 'id': 'main' }), React.createElement('div', { 'id': 'smaller' })), React.createElement('div', { 'id': 'who' }, React.createElement('div', { 'className': 'pull-right' }, React.createElement('div', {
+            'className': 'tip-button',
+            'onClick': this.give_a_tip.bind(this, 2)
+        }, '\n          2$\n        '), React.createElement('div', {
+            'className': 'tip-button',
+            'onClick': this.give_a_tip.bind(this, 5)
+        }, '\n          5$\n        '), React.createElement('div', {
+            'className': 'tip-button',
+            'onClick': this.give_a_tip.bind(this, 10)
+        }, '          \n          10$\n        '), React.createElement('div', {
+            'className': 'tip-button',
+            'onClick': this.give_a_tip.bind(this, 20)
+        }, '\n          20$\n        ')), React.createElement('h1', {}, 'The Startup Weekends'), React.createElement('small', {}, 'Playing at Seattle City Hall')), React.createElement('div', {
+            'id': 'give-tip',
+            'className': this.state.giving_tip ? '' : ''
+        }, this.state.gave_tip ? React.createElement('div', {}, React.createElement('h1', { 'style': { margin: '0' } }, 'Thank You!'), React.createElement('h3', {}, 'Gave a $', this.state.tip_amount, ' tip!')) : null, !this.state.gave_tip ? React.createElement('div', {}, React.createElement('h1', {}, 'Tip "The Startup Weekends" $', this.state.tip_amount), React.createElement('span', {}, '\n          Please log in or create a new account to continue.', React.createElement('br', {}), React.createElement('br', {})), React.createElement('img', {
+            'src': '/images/google.png',
+            'onClick': this.gave_a_tip,
+            'id': 'google-signin'
+        }), React.createElement('img', {
+            'src': '/images/facebook.png',
+            'onClick': this.gave_a_tip,
+            'id': 'fb-signin'
+        })) : null), React.createElement.apply(this, [
             'div',
             { 'id': 'chatroom' },
             _.map(this.state.messages.slice(-15), repeatMessage2.bind(this)),

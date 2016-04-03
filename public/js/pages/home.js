@@ -11,41 +11,7 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
         || navigator.webkitGetUserMedia
         || navigator.mozGetUserMedia;
     var running_timer = false;
-    
-    var artists = [
-        {name: 'TacocaT',
-         venue: "Doc Marten\'s",
-         image: '/images/video4.webm'},
-        {name: 'Camp Lo',
-         venue: 'Tractor Tavern',
-         image: '/images/video1.webm'},
-        {name: "Lion's Ambition",
-         venue: 'The Showbox',
-         image: '/images/video2.webm'},
-        {name: 'The Classic Crime',
-         venue: 'The Triple Door',
-         image: '/images/video5.webm'},
-        {name: 'Band of Horses',
-         venue: 'The Crocodile',
-         image: '/images/band_of_horses.jpg'},
-        {name: 'Grand Archives',
-         venue: 'Central Saloon',
-         image: '/images/grand_archives.jpg'},
-        {name: 'Blue Scholars',
-         venue: 'Nippon Kan',
-         image: 'https://i.ytimg.com/vi/p8rzHTHKvKs/maxresdefault.jpg'},
-        {name: 'Minus the Bear',
-         image: '/images/minus_the_bear.jpg',
-         venue: 'Nectar Lounge'},
-        {name: 'The Head and the Heart',
-         image: '/images/head_and_heart.jpg',
-         venue: 'Neumos'},
-        {name: 'OnTourage',
-         image: '/images/startup_weekend.jpg',
-         venue: 'Startup Weekend Seattle Music'},
-        {name: "Wimps",
-         venue: "Columbia City Theater",
-         image: "/images/video6.webm"}];
+
     
     var people = [{name: 'david', email: 'david@webdever.net', url: lookup_gravatar('david@webdever.net', 70)},
                   {name: 'bill123142', email: '', url: 'https://yt3.ggpht.com/-AbhjhawAzT4/AAAAAAAAAAI/AAAAAAAAAAA/dHjAHcytyJ8/s48-c-k-no-rj-c0xffffff/photo.jpg'},

@@ -11,13 +11,17 @@
       <div id="videos-list">
         <div id="browse-bar">
           <div class="pull-left">
-            <div class="browse-btn">
+            <div
+              onClick="{this.set_showing.bind(this, 'events')}"
+              class="browse-btn">
               Events
             </div>
-            <div class="browse-btn">
+            <div class="browse-btn"
+                 onClick="{this.set_showing.bind(this, 'feed')}">
               Feed
             </div>
-            <div class="browse-btn">
+            <div class="browse-btn"
+                 onClick="{this.set_showing.bind(this, 'trending')}">
               Trending
             </div>
           </div>
@@ -26,89 +30,25 @@
             <button id="search-btn" class="fa fa-search"></button>
           </div>
         </div>
-
-      <div class="a-video" onClick="{this.go_to.bind(this, '/show/test/test/11')}">
-        <strong class="title">Wimps<br /><small>Columbia City Theater</small></strong>
-        <div class="live-now">Live now</div>
+        <span rt-repeat="artist in this.state.artists">
+          <div class="a-video"
+               rt-if="this.artist_matches(artist)"
+               onClick="{this.go_to.bind(this, '/show/test/' + (artist.live_in == 0 ? 'test' : 'countdown') + '/' + artist.id)}">
+        <strong class="title">{artist.name}<br /><small>{artist.venue}</small></strong>
+        <div class="live-now">
+          <span rt-if="artist.live_in == 0">
+            Live now
+          </span>
+          <span rt-if="artist.live_in != 0">
+            Live in {artist.live_in}m
+          </span></div>
         <div class="a-video-wrapper">
-          <video src="/images/video6.webm" loop="loop" autoplay="autoplay" muted="muted" />
+          <video src="{artist.image}" rt-if="artist.image.slice(-4) == 'webm'" loop="loop" autoplay="autoplay" muted="muted" />
+          <img class="video" src="{artist.image}" rt-if="artist.image.slice(-4) != 'webm'" loop="loop" autoplay="autoplay" muted="muted" />          
         </div>
       </div>
+        </span>
         
-      <div class="a-video" onClick="{this.go_to.bind(this, '/show/test/test/1')}">
-        <strong class="title">TacocaT<br /><small>Doc Marten's</small></strong>
-        <div class="live-now">Live now</div>
-        <div class="a-video-wrapper">
-          <video src="/images/video4.webm" loop="loop" autoplay="autoplay" muted="muted" />
-        </div>
-      </div>
-      
-      <div class="a-video" onClick="{this.go_to.bind(this, '/show/test/test/10')}">
-        <strong class="title">OnTourage<br /><small>Startup Weekend Seattle Music</small></strong>
-        <div class="live-now">Live now</div>
-        <div class="a-video-wrapper">
-          <img class="video" src="/images/startup_weekend.jpg" loop="loop" autoplay="autoplay" muted="muted" />
-        </div>
-      </div>
-      <!-- -div class="a-video" onClick="{this.go_to.bind(this, '/show/test/test/2')}">
-        <strong class="title">Camp Lo<br /><small>Tractor Tavern</small></strong>
-        <div class="live-now">Live now</div>
-        <div class="a-video-wrapper">
-          <video src="/images/video1.webm" loop="loop" autoplay="autoplay" muted="muted" />
-        </div>
-      </div-->
-     <div class="a-video" onClick="{this.go_to.bind(this, '/show/test/test/3')}">
-       <strong class="title">Lion's Ambition<br /><small>The Showbox</small></strong>
-        <div class="live-now">Live now</div>
-        <div class="a-video-wrapper">
-          <video src="/images/video2.webm" loop="loop" autoplay="autoplay" muted="muted" />
-        </div>
-      </div>
-      <div class="a-video" onClick="{this.go_to.bind(this, '/show/test/test/4')}">
-        <strong class="title">The Classic Crime<br/><small>The Triple Door</small></strong>
-        <div class="live-now">Live Now</div>
-        <div class="a-video-wrapper">
-          <video src="/images/video5.webm" loop="loop" autoplay="autoplay" muted="muted" />
-        </div>
-      </div>
-      <div class="a-video" onClick="{this.go_to.bind(this, '/show/test/countdown/7')}">
-        <strong class="title">Blue Scholars<br/><small>Nippon Kan</small></strong>
-        <div class="live-now">Live in 15m</div>
-        <div class="a-video-wrapper">
-          <img src="https://i.ytimg.com/vi/p8rzHTHKvKs/maxresdefault.jpg" class="video"  muted="muted" loop="loop" autoplay="autoplay"/>
-        </div>
-      </div>      
-      <div class="a-video" onClick="{this.go_to.bind(this, '/show/test/countdown/5')}">
-        <strong class="title">Band of Horses<br/><small>The Triple Crocodile</small></strong>
-        <div class="live-now">Live in 8m</div>
-        <div class="a-video-wrapper">
-          <img class="video" src="/images/band_of_horses.jpg" autoplay="autoplay" muted="muted" />
-        </div>
-      </div>      
-      <div class="a-video" onClick="{this.go_to.bind(this, '/show/test/countdown/6')}">
-        <strong class="title">Grand Archives<br/><small>Central Saloon</small></strong>
-        <div class="live-now">Live in 18m</div>
-        <div class="a-video-wrapper">
-          <img class="video" src="/images/grand_archives.jpg" autoplay="autoplay" muted="muted" />
-        </div>
-      </div>      
-
-      <div class="a-video" onClick="{this.go_to.bind(this, '/show/test/countdown/8')}">
-        <strong class="title">Minus the Bear<br /><small>Nectar Lounge</small></strong>
-        <div class="live-now">Live in 18m</div>
-        <div class="a-video-wrapper">
-          <img class="video" src="/images/minus_the_bear.jpg" autoplay="autoplay" muted="muted" />
-        </div>
-      </div>      
- 
-      <div class="a-video" onClick="{this.go_to.bind(this, '/show/test/countdown/9')}">
-        <strong class="title">The Head and the Heart<br /><small>Neumos</small></strong>
-        <div class="live-now">Live in 38m</div>
-        <div class="a-video-wrapper">
-          <img class="video" src="/images/head_and_heart.jpg" autoplay="autoplay" muted="muted" />
-        </deiv>
-      </div>      
-
     </div>
   </div>
 </div>

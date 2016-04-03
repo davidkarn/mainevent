@@ -81,7 +81,7 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
         var participants = [{local:      true,
                              src:      $('#localVideo').attr('src'),
                              name:      'me'}];
-        $('#remoteVideos').children().map(function(i, el) {
+        $('#remotesVideos').children().map(function(i, el) {
             participants.push({src:    el.src,
                                name:  'name'}); });
         me.setState({participants: participants}); }

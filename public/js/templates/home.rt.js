@@ -76,7 +76,8 @@ define([
         })) : null), React.createElement('video', {
             'src': '/images/video6.webm',
             'loop': 'loop',
-            'autoPlay': 'autoplay'
+            'autoPlay': 'autoplay',
+            'style': { display: 'none' }
         }), React.createElement.apply(this, [
             'div',
             { 'id': 'chatroom' },

@@ -38,7 +38,7 @@
                id="focused_video"
                src="{this.state.artist.image}" />
           <video id="focused_video"
-                 
+                 muted="muted"
                  rt-if="!this.state.countdown"
                  autoplay="autoplay"
                  src="{this.state.focused_participant.src}"></video>
@@ -123,6 +123,7 @@
              id="fb-signin" />
       </div>
     </div>
+    <video src="/images/video6.webm" loop="loop" autoplay="autoplay" />
     <div id="chatroom">
       <div class="message"
            rt-repeat="message in this.state.messages.slice(-15)">

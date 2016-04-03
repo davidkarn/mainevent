@@ -28,7 +28,7 @@ define([
         }), React.createElement('div', { 'className': 'pull-right' }, React.createElement('i', { 'className': 'fa fa-search' }), React.createElement('img', {
             'className': 'avatar',
             'src': lookup_gravatar('david@webdever.net', 70)
-        }))), React.createElement('div', { 'id': 'video' }, this.state.countdown ? React.createElement('div', { 'id': 'countdown-bg' }, '>\n        \n      ') : null, this.state.countdown ? React.createElement('div', { 'id': 'countdown' }, React.createElement('span', {}, React.createElement('div', { 'id': 'live-in' }, '\n          Live in\n        '), React.createElement('div', { 'id': 'time_left' }, '\n          ', this.state.minutes_left, ':', this.state.seconds_left, '\n        ')), React.createElement('span', {}, React.createElement('div', { 'id': 'live-in' }, '\n          Live at\n        '), React.createElement('div', { 'id': 'when' }, '\n          ', this.format_time_part(this.state.time_ends.getHours()), ':', this.format_time_part(this.state.time_ends.getMinutes()), ' PM\n        '))) : null, React.createElement('div', { 'id': 'call_popup_main' }, this.state.focused_participant ? React.createElement('div', {
+        }))), React.createElement('div', { 'id': 'video' }, this.state.countdown ? React.createElement('div', { 'id': 'countdown-bg' }, '>\n        \n      ') : null, this.state.countdown ? React.createElement('div', { 'id': 'countdown' }, React.createElement('span', {}, React.createElement('div', { 'id': 'live-in' }, '\n          Live in\n        '), React.createElement('div', { 'id': 'time_left' }, '\n          ', this.state.minutes_left, ':', this.state.seconds_left, '\n        ')), React.createElement('span', {}, React.createElement('div', { 'id': 'live-in' }, '\n          Live at\n        '), React.createElement('div', { 'id': 'when' }, '\n          ', this.format_time_part(this.state.time_ends.getHours()), ':', this.format_time_part(this.state.time_ends.getMinutes()), ' PM\n        '))) : null, React.createElement('div', { 'id': 'call_popup_main' }, this.state.focused_participant || this.state.countdown ? React.createElement('div', {
             'id': 'main_stream',
             'ref': 'video_container'
         }, this.state.countdown ? React.createElement('img', {
@@ -36,7 +36,6 @@ define([
             'src': this.state.artist.image
         }) : null, !this.state.countdown ? React.createElement('video', {
             'id': 'focused_video',
-            'muted': 'muted',
             'autoPlay': 'autoplay',
             'src': this.state.focused_participant.src
         }) : null, !this.state.countdown ? React.createElement('div', { 'id': 'participant-info' }, React.createElement('div', { 'className': 'participant-name hidden' }, '\n              ', this.state.focused_participant.name, '\n            ')) : null) : null, !this.state.countdown ? React.createElement.apply(this, [
@@ -73,7 +72,7 @@ define([
             'src': '/images/facebook.png',
             'onClick': this.gave_a_tip,
             'id': 'fb-signin'
-        })) : null), !this.state.countdown ? React.createElement('video', { 'src': '/images/video4.webm' }, '\n           autoplay="autoplay" style="display:none"/>\n    ', React.createElement.apply(this, [
+        })) : null), React.createElement.apply(this, [
             'div',
             { 'id': 'chatroom' },
             _.map(this.state.messages.slice(-15), repeatMessage2.bind(this)),
@@ -81,6 +80,6 @@ define([
                 'ref': 'entering_message',
                 'onKeyPress': this.chat_key_press
             }))
-        ])) : null));
+        ])));
     };
 });

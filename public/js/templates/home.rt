@@ -33,12 +33,12 @@
       </div>
       <div id="call_popup_main">
         
-        <div id="main_stream" ref="video_container" rt-if="this.state.focused_participant">
+        <div id="main_stream" ref="video_container" rt-if="this.state.focused_participant || this.state.countdown">
           <img rt-if="this.state.countdown"
                id="focused_video"
                src="{this.state.artist.image}" />
           <video id="focused_video"
-                 muted="muted"
+                 
                  rt-if="!this.state.countdown"
                  autoplay="autoplay"
                  src="{this.state.focused_participant.src}"></video>
@@ -123,9 +123,6 @@
              id="fb-signin" />
       </div>
     </div>
-    <video src="/images/video4.webm"
-           rt-if="!this.state.countdown">
-           autoplay="autoplay" style="display:none"/>
     <div id="chatroom">
       <div class="message"
            rt-repeat="message in this.state.messages.slice(-15)">

@@ -43,7 +43,7 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
         {name: 'OnTourage',
          image: '/images/startup_weekend.jpg',
          venue: 'Startup Weekend Seattle Music'},
-        {name: "wimps",
+        {name: "Wimps",
          venue: "Columbia City Theater",
          image: "/images/video6.webm"}];
     
@@ -54,12 +54,16 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
                   {name: 'Bernie Sandars', email: '', url: 'https://yt3.ggpht.com/-yLlO9YEUpjs/AAAAAAAAAAI/AAAAAAAAAAA/rMi-vgaKEBI/s48-c-k-no-rj-c0xffffff/photo.jpg'},
                   {name: 'EVILpeanut', email: '', url: 'https://5minutemarvels.files.wordpress.com/2012/01/mpsmall.jpg'},
                   {name: '23422ofJustice', email: '', url: 'https://yt3.ggpht.com/-eN4a_aghN4Q/AAAAAAAAAAI/AAAAAAAAAAA/5aJg82EwHaQ/s32-c-k-no-rj-c0xffffff/photo.jpg'},
-                   {name: 'fruityloop3008', email: '', url: 'https://yt3.ggpht.com/-BNqSZMoSnpE/AAAAAAAAAAI/AAAAAAAAAAA/T6a0UZFoJTQ/s48-c-k-no-rj-c0xffffff/photo.jpg'}];
+                  {name: 'fruityloop3008', email: '', url: 'https://yt3.ggpht.com/-BNqSZMoSnpE/AAAAAAAAAAI/AAAAAAAAAAA/T6a0UZFoJTQ/s48-c-k-no-rj-c0xffffff/photo.jpg'},
+                  {name: 'TheDonald',
+                   email: '',
+                   url: 'https://s-media-cache-ak0.pinimg.com/favicons/49c050b9d28c4ee325d1148862ba5cf656a4d1e19f031a60dbad7e5d.png?ec3ffa097e2159d20d2f0e1f8204086e'}];
     var messages = ['Awesome show',
                     'I cant believe he just did that',
                     'What?',
                     'hello',
                     'what are you talking about?',
+                    'CCCCCCCCCCCant stump the trump!',
                     '@fruityloop3008 I know right',
                     '@Colenels4nders what do you mean',
                     'huh?',
@@ -124,7 +128,6 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
                                                * 1000 * 60))
                                             / 1000);
             
-            console.log(time_left, minutes_left, then, seconds_left);
             me.setState({time_ends:    new Date(then),
                          minutes_left: format_time_part(minutes_left),
                          seconds_left: format_time_part(seconds_left),

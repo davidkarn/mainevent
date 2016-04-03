@@ -9,20 +9,48 @@
       </div>
     </div>
     <div id="video">
+      <div id="countdown-bg" rt-if="this.state.countdown">>
+        
+      </div>
+      <div id="countdown" rt-if="this.state.countdown">
+        <span>
+        <div id="live-in">
+          Live in
+        </div>
+        <div id="time_left">
+          {this.state.minutes_left}:{this.state.seconds_left}
+        </div>
+        </span>
+        <span >
+          <div id="live-in">
+          Live at
+        </div>
+
+        <div id="when">
+          {this.format_time_part(this.state.time_ends.getHours())}:{this.format_time_part(this.state.time_ends.getMinutes())} PM
+        </div>
+        </span>
+      </div>
       <div id="call_popup_main">
         
         <div id="main_stream" ref="video_container" rt-if="this.state.focused_participant">
+          <img rt-if="this.state.countdown"
+               id="focused_video"
+               src="{this.state.artist.image}" />
           <video id="focused_video"
                  muted="muted"
+                 rt-if="!this.state.countdown"
                  autoplay="autoplay"
                  src="{this.state.focused_participant.src}"></video>
-          <div id="participant-info">
+          <div id="participant-info"
+               rt-if="!this.state.countdown">
             <div class="participant-name hidden">
               {this.state.focused_participant.name}
             </div>
           </div>
         </div>
-        <div id="participants">
+        <div id="participants"
+             rt-if="!this.state.countdown">
           <div class="call-participant"
                rt-repeat="participant in this.get_participants()">
             <div class="video-wrapper2"
@@ -51,6 +79,12 @@
     </div>
     <div id="who">
       <div  class="pull-right">
+        <a href="https://squareup.com/store/tacocat4u">
+        <div class="tip-button fa fa-shopping-cart"
+             style="padding-top:13px;">
+          
+        </div>
+        </a>
         <div class="tip-button"
              onClick="{this.give_a_tip.bind(this, 10)}">
           10$
@@ -68,8 +102,8 @@
           custom
         </div>
       </div>
-      <h1>The Startup Weekends</h1>
-      <small>Playing at Seattle City Hall</small>
+      <h1>{this.state.artist.name}</h1>
+      <small>{this.state.artist.venue}</small>
     </div>
     <div id="give-tip" class="{this.state.giving_tip ? '' : ''}">
       <div rt-if="this.state.gave_tip">
@@ -77,7 +111,7 @@
         <h3>Gave a ${this.state.tip_amount} tip!</h3>
       </div>
       <div rt-if="!this.state.gave_tip">
-        <h1>Tip "The Startup Weekends" ${this.state.tip_amount}</h1>
+        <h1>Tip "{this.state.artist.name}" ${this.state.tip_amount}</h1>
         <span>
           Please log in or create a new account to continue.<br /><br />
         </span>

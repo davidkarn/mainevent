@@ -6,6 +6,7 @@ define(['react', 'lodash', 'react_router', 'pages/home', 'templates/home.rt', 'p
             return React.createElement(Router.RouteHandler, null); }});
 
     var routes = {"show/:show_id/:my_id":    home,
+                  "show/:show_id/:my_id/:artist_id":    home,
                   "":                        browse,
                   "browse":                  browse,
                   "home":                    home};

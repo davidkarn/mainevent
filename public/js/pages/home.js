@@ -10,7 +10,37 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
     var getUserMedia = navigator.getUserMedia
         || navigator.webkitGetUserMedia
         || navigator.mozGetUserMedia;
-
+    var running_timer = false;
+    
+    var artists = [
+        {name: 'TacocaT',
+         venue: "Doc Marten\'s",
+         image: '/images/video4.webm'},
+        {name: 'Camp Lo',
+         venue: 'Tractor Tavern',
+         image: '/images/video1.webm'},
+        {name: "Lion's Ambition",
+         venue: 'The Showbox',
+         image: '/images/video2.webm'},
+        {name: 'The Classic Crime',
+         venue: 'The Triple Door',
+         image: '/images/video5.webm'},
+        {name: 'Band of Horses',
+         venue: 'The Crocodile',
+         image: '/images/band_of_horses.jpg'},
+        {name: 'Grand Archives',
+         venue: 'Central Saloon',
+         image: '/images/grand_archives.jpg'},
+        {name: 'Blue Scholars',
+         venue: 'Nippon Kan',
+         image: 'https://i.ytimg.com/vi/p8rzHTHKvKs/maxresdefault.jpg'},
+        {name: 'Minus the Bear',
+         image: '/images/minus_the_bear.jpg',
+         venue: 'Nectar Lounge'},
+        {name: 'The Head and the Heart',
+         image: '/images/head_and_heart.jpg',
+         venue: 'Neumos'}];
+    
     var people = [{name: 'david', email: 'david@webdever.net', url: lookup_gravatar('david@webdever.net', 70)},
                   {name: 'bill123142', email: '', url: 'https://yt3.ggpht.com/-AbhjhawAzT4/AAAAAAAAAAI/AAAAAAAAAAA/dHjAHcytyJ8/s48-c-k-no-rj-c0xffffff/photo.jpg'},
                   {name: 'Jim Jones', email: '', url: 'https://yt3.ggpht.com/--LQfdsFsCCg/AAAAAAAAAAI/AAAAAAAAAAA/dTDXZh08IKo/s48-c-k-no-rj-c0xffffff/photo.jpg'},
@@ -58,17 +88,62 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
     function render() {
         return home_template.apply(this, arguments); }
 
+    function format_time_part(num) {
+        var s = Math.round(num).toString();
+        if (s.length == 1)
+            return '0' + s;
+        return s; }
+
+    function rand_img() {
+        return random_list_member(
+            ["/images/band_of_horses.jpg",
+             "/images/grand_archives.jpg",
+             "/images/minus_the_bear.jpg",
+             "/images/head_and_heart.jpg"]); }
+
+
+    function timer() {
+        var now = new Date();
+        var then = now - (-60 * Math.random() * 10000);
+        me.state.countdown_url = rand_img();
+        running_timer = true;
+
+        function run_timer() {
+            if (!running_timer) return;
+            var now = new Date();
+            var time_left      = ((then -1) - (now - 1));
+            var minutes_left   = Math.floor(time_left / 1000 / 60);
+            var seconds_left   = Math.floor((time_left
+                                            - (minutes_left
+                                               * 1000 * 60))
+                                            / 1000);
+            
+            console.log(time_left, minutes_left, then, seconds_left);
+            me.setState({time_ends:    new Date(then),
+                         minutes_left: format_time_part(minutes_left),
+                         seconds_left: format_time_part(seconds_left),
+                         countdown:    time_left > 0});
+            setTimeout(run_timer, 1000); }
+                    
+        run_timer(); }
+        
+
     function setup() {
         me = this;
         chat();
-//        return init_demo();
+        
+
         if (this.state.we_setup) return;
-        console.log('setting_it_up');
+
         this.state.we_setup = true;
         if (this.props.params.show_id)
             this.state.show_id = this.props.params.show_id;
         if (this.props.params.my_id)
             this.state.my_id = this.props.params.my_id;
+        if (this.props.params.artist_id)
+            this.state.artist = artists[this.props.params.artist_id - 1];
+        if (this.state.my_id == 'countdown')
+            timer();
         var webrtc = new SimpleWebRTC({
             // the id/element dom element that will hold "our" video
             localVideoEl: 'localVideo',
@@ -214,6 +289,7 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
         this.setState({}); }
 
     function go_to_(where_to)  {
+        running_timer = false;
         this.state.we_setup = false;
         go_to(where_to); }
 
@@ -239,6 +315,7 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
         give_a_tip:           give_a_tip,
         gave_a_tip:           gave_a_tip,
         componentDidMount:    get_props,
+        format_time_part:     format_time_part,
 //        componentWillMount: get_props,
         get_participants:     get_participants,
         add_participant:      add_participant,
@@ -248,5 +325,6 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
                                         chat:          [],
                                         giving_tip:    false,
                                         messages:      [],
+                                        artist: {},
                                         log:           []}),
         render:               render}); });

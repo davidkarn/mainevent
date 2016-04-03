@@ -84,7 +84,8 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
         $('#remotesVideos').children().map(function(i, el) {
             participants.push({src:    el.src,
                                name:  'name'}); });
-        me.setState({participants: participants}); }
+        me.setState({participants:          participants,
+                     focused_participant:   me.state.focused_participant || participants[0]}); }
         
     
     function setup_peer() {

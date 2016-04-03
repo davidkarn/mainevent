@@ -1,5 +1,12 @@
 <div>
   <div class="wrap">
+    <div id="navbar">
+      <img src="/images/logo2.png" id="logo" />
+      <div class="pull-right">
+        <i class="fa fa-search"></i>
+        <img class="avatar" src="{lookup_gravatar('david@webdever.net', 70)}" />
+      </div>
+    </div>
     <div id="video">
       <div id="call_popup_main">
         
@@ -41,9 +48,10 @@
       <div id="smaller">
       </div>
     </div>
-            <h1>The Startup Weekends</h1>
+    <div id="who">
+      <h1>The Startup Weekends</h1>
       <small>Playing at Seattle City Hall</small>
-
+    </div>
     <div id="chatroom">
       <div class="message"
            rt-repeat="message in this.state.messages.slice(-15)">

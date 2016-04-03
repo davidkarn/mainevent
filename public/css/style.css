@@ -1,11 +1,13 @@
-    body {
-        margin: 25px; }
+body {
+  margin: 25px;
+    margin-top: 74px; }
         
         #video {
             overflow: hidden;
-            position: relative;
-        width: calc(100% - 50px - 30%);
-        height: calc(100vh - 160px); }
+          position: relative;
+          left: 4px;
+        width: calc(100% - 20px - 30%);
+        height: calc(100vh - 140px); }
  #call_popup_main #participants {
      position: absolute;
      right: 20px;
@@ -38,7 +40,7 @@
     position: fixed;
     top: 0;
     padding: 14px;
-    border-left: 1px solid #eee;
+    border-left: 1px solid #ddd;
     padding-left: 25px;
     overflow: scroll;
     right: 0;
@@ -53,8 +55,9 @@
   padding-bottom: 0px;
   margin-bottom: 4px; }
 
-    .message .avatar {
-  top: -8px;
+.message .avatar {
+  border:1px solid #ccc;
+  top: -9.25px;
   position: relative;
         height: 35px;
         width: 35px;
@@ -87,3 +90,61 @@
   height: 100%;
   background: #FFF;
   border: 1px solid #ddd; }
+
+
+#navbar {
+  position:fixed;
+  z-index:999;
+  top:0;
+  left:0;
+  right:0;
+  height: 50px;
+  padding: 10px;
+  background-color: #222; }
+
+#navbar #logo {
+  margin-left: 25px; 
+  display: inline-block;
+  height: 30px; }
+
+#navbar .pull-right img {
+  height: 30px;
+  width: 30px;
+  border-radius: 15px; }
+
+#navbar img {
+  opacity: 0.8;
+    transition: opacity 1s; }
+
+
+#navbar .pull-right {
+  margin-right: 25px;
+  }
+
+#navbar .pull-right i{
+  font-size: 25px;
+  top: 3px;
+  position: relative;
+  color: #bbb;
+  transition: color 1s;
+  display: inline-block;
+  margin-right: 14px; }
+
+#navbar .pull-right i:hover{
+  color:#fff;
+  cursor: pointer;
+  transition: color 0.5s; 
+}
+
+#navbar img:hover{
+  opacity:1.0;
+  cursor: pointer;
+  transition: opacity 0.5s; 
+  }
+
+h1 {
+  margin: 0;
+  font-size: 2em; }
+#who {
+  margin-top: 8px; 
+  padding-left: 5px; }

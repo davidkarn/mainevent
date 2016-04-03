@@ -80,7 +80,7 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
 
     function timer() {
         var now = new Date();
-        var then = now - (-60 * Math.random() * 10000);
+        var then = now - (-5 * 1000);
         me.state.countdown_url = rand_img();
         running_timer = true;
 
@@ -118,7 +118,7 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
         if (this.props.params.artist_id)
             this.state.artist = artists[this.props.params.artist_id - 1];
         if (this.state.my_id == 'countdown')
-            return timer();
+            /*return*/ timer();
         else {
             running_timer = false;
             me.setState({time_ends: false,

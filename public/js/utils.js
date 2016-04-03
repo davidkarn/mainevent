@@ -456,7 +456,7 @@ function query_parameter(key) {
          venue: "Doc Marten\'s",
          image: '/images/video4.webm'},
         {name: 'OnTourage',
-         live_in: 0,
+         live_in: 1,
          id: 2,
          image: '/images/startup_weekend.jpg',
          venue: 'Startup Weekend Seattle Music'},

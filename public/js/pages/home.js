@@ -146,7 +146,7 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
         if (this.props.params.artist_id)
             this.state.artist = artists[this.props.params.artist_id - 1];
         if (this.state.my_id == 'countdown')
-            timer();
+            return timer();
         else {
             running_timer = false;
             me.setState({time_ends: false,
@@ -177,6 +177,7 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
         var participants = [{local:      true,
                              src:      $('#localVideo').attr('src'),
                              name:      'me'}];
+        participants = [];
         $('#remotesVideos').children().map(function(i, el) {
             participants.push({src:    el.src,
                                name:  'name'}); });

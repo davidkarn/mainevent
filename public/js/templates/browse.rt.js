@@ -13,7 +13,14 @@ define([
         }), React.createElement('div', { 'className': 'pull-right' }, React.createElement('i', { 'className': 'fa fa-search' }), React.createElement('img', {
             'className': 'avatar',
             'src': lookup_gravatar('david@webdever.net', 70)
-        }))), React.createElement('div', { 'style': { textAlign: 'center' } }, React.createElement('div', { 'id': 'videos-list' }, React.createElement('div', {
+        }))), React.createElement('div', { 'style': { textAlign: 'center' } }, React.createElement('div', { 'id': 'videos-list' }, React.createElement('div', { 'id': 'browse-bar' }, React.createElement('div', { 'className': 'pull-left' }, React.createElement('div', { 'className': 'browse-btn' }, '\n              Events\n            '), React.createElement('div', { 'className': 'browse-btn' }, '\n              Feed\n            '), React.createElement('div', { 'className': 'browse-btn' }, '\n              Trending\n            ')), React.createElement('div', { 'className': 'pull-right' }, React.createElement('input', {
+            'type': 'text',
+            'id': 'search-input',
+            'placeholder': 'search'
+        }), React.createElement('button', {
+            'id': 'search-btn',
+            'className': 'fa fa-search'
+        }))), React.createElement('div', {
             'className': 'a-video',
             'onClick': this.go_to.bind(this, '/show/test/test')
         }, React.createElement('strong', { 'className': 'title' }, 'TacocaT', React.createElement('br', {}), React.createElement('small', {}, 'Doc Marten\'s')), React.createElement('div', { 'className': 'live-now' }, 'Live now'), React.createElement('div', { 'className': 'a-video-wrapper' }, React.createElement('video', {
@@ -47,7 +54,7 @@ define([
             'muted': 'muted'
         }))), React.createElement('div', {
             'className': 'a-video',
-            'onClick': this.go_to.bind(this, '/show/test/test')
+            'onClick': this.go_to.bind(this, '/show/test/countdown')
         }, React.createElement('strong', { 'className': 'title' }, 'Band of Horses'), React.createElement('div', { 'className': 'live-now' }, 'Live in 8m'), React.createElement('div', { 'className': 'a-video-wrapper' }, React.createElement('img', {
             'className': 'video',
             'src': '/images/band_of_horses.jpg',
@@ -55,7 +62,7 @@ define([
             'muted': 'muted'
         }))), React.createElement('div', {
             'className': 'a-video',
-            'onClick': this.go_to.bind(this, '/show/test/test')
+            'onClick': this.go_to.bind(this, '/show/test/countdown')
         }, React.createElement('strong', { 'className': 'title' }, 'Grand Archives'), React.createElement('div', { 'className': 'live-now' }, 'Live in 18m'), React.createElement('div', { 'className': 'a-video-wrapper' }, React.createElement('img', {
             'className': 'video',
             'src': '/images/grand_archives.jpg',
@@ -63,7 +70,7 @@ define([
             'muted': 'muted'
         }))), React.createElement('div', {
             'className': 'a-video',
-            'onClick': this.go_to.bind(this, '/show/test/test')
+            'onClick': this.go_to.bind(this, '/show/test/countdown')
         }, React.createElement('strong', { 'className': 'title' }, 'Band Name at Venue'), React.createElement('div', { 'className': 'live-now' }, 'Live in 15m'), React.createElement('div', { 'className': 'a-video-wrapper' }, React.createElement('video', {
             'src': '/images/video3.webm',
             'muted': 'muted',
@@ -71,7 +78,7 @@ define([
             'autoPlay': 'autoplay'
         }))), React.createElement('div', {
             'className': 'a-video',
-            'onClick': this.go_to.bind(this, '/show/test/test')
+            'onClick': this.go_to.bind(this, '/show/test/countdown')
         }, React.createElement('strong', { 'className': 'title' }, 'Minus the Bear'), React.createElement('div', { 'className': 'live-now' }, 'Live in 18m'), React.createElement('div', { 'className': 'a-video-wrapper' }, React.createElement('img', {
             'className': 'video',
             'src': '/images/minus_the_bear.jpg',
@@ -79,7 +86,7 @@ define([
             'muted': 'muted'
         }))), React.createElement('div', {
             'className': 'a-video',
-            'onClick': this.go_to.bind(this, '/show/test/test')
+            'onClick': this.go_to.bind(this, '/show/test/countdown')
         }, React.createElement('strong', { 'className': 'title' }, 'The Head and the Heart'), React.createElement('div', { 'className': 'live-now' }, 'Live in 38m'), React.createElement('div', { 'className': 'a-video-wrapper' }, React.createElement('img', {
             'className': 'video',
             'src': '/images/head_and_heart.jpg',

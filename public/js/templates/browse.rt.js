@@ -30,6 +30,15 @@ define([
             'muted': 'muted'
         }))), React.createElement('div', {
             'className': 'a-video',
+            'onClick': this.go_to.bind(this, '/show/test/test/10')
+        }, React.createElement('strong', { 'className': 'title' }, 'OnTourage', React.createElement('br', {}), React.createElement('small', {}, 'Startup Weekend Seattle Music')), React.createElement('div', { 'className': 'live-now' }, 'Live now'), React.createElement('div', { 'className': 'a-video-wrapper' }, React.createElement('img', {
+            'className': 'video',
+            'src': '/images/startup_weekend.jpg',
+            'loop': 'loop',
+            'autoPlay': 'autoplay',
+            'muted': 'muted'
+        }))), React.createElement('div', {
+            'className': 'a-video',
             'onClick': this.go_to.bind(this, '/show/test/test/2')
         }, React.createElement('strong', { 'className': 'title' }, 'Camp Lo', React.createElement('br', {}), React.createElement('small', {}, 'Tractor Tavern')), React.createElement('div', { 'className': 'live-now' }, 'Live now'), React.createElement('div', { 'className': 'a-video-wrapper' }, React.createElement('video', {
             'src': '/images/video1.webm',

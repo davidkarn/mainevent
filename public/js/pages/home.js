@@ -39,7 +39,10 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
          venue: 'Nectar Lounge'},
         {name: 'The Head and the Heart',
          image: '/images/head_and_heart.jpg',
-         venue: 'Neumos'}];
+         venue: 'Neumos'},
+        {name: 'OnTourage',
+         image: '/images/startup_weekend.jpg',
+         venue: 'Startup Weekend Seattle Music'}];
     
     var people = [{name: 'david', email: 'david@webdever.net', url: lookup_gravatar('david@webdever.net', 70)},
                   {name: 'bill123142', email: '', url: 'https://yt3.ggpht.com/-AbhjhawAzT4/AAAAAAAAAAI/AAAAAAAAAAA/dHjAHcytyJ8/s48-c-k-no-rj-c0xffffff/photo.jpg'},
@@ -292,12 +295,12 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
         running_timer = false;
         this.state.we_setup = false;
         me.state = {show_id:      (query_parameter('show_id') || 'mainevent_id_' + Math.random().toString().slice(3)),
-                                        participants:  [],
-                                        chat:          [],
-                                        giving_tip:    false,
-                                        messages:      [],
-                                        artist: {},
-                                        log:           []};
+                    participants:  [],
+                    chat:          [],
+                    giving_tip:    false,
+                    messages:      [],
+                    artist: {},
+                    log:           []};
         go_to(where_to); }
 
     function get_props(new_props) {

@@ -278,6 +278,7 @@ text-align: left;
 }
 
 .a-video img.video{
+  display: inline-block;
   width: 400px;
   height: 250px;
   object-fit: cover;

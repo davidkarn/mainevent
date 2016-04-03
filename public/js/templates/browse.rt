@@ -34,6 +34,13 @@
           <video src="/images/video4.webm" loop="loop" autoplay="autoplay" muted="muted" />
         </div>
       </div>
+      <div class="a-video" onClick="{this.go_to.bind(this, '/show/test/test/10')}">
+        <strong class="title">OnTourage<br /><small>Startup Weekend Seattle Music</small></strong>
+        <div class="live-now">Live now</div>
+        <div class="a-video-wrapper">
+          <img class="video" src="/images/startup_weekend.jpg" loop="loop" autoplay="autoplay" muted="muted" />
+        </div>
+      </div>
       <div class="a-video" onClick="{this.go_to.bind(this, '/show/test/test/2')}">
         <strong class="title">Camp Lo<br /><small>Tractor Tavern</small></strong>
         <div class="live-now">Live now</div>

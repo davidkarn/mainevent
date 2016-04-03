@@ -21,7 +21,7 @@ define([
         }), React.createElement('div', { 'className': 'message-part' }, React.createElement('strong', { 'className': 'name' }, message.name), React.createElement('br', {}), React.createElement('span', {}, ' ', message.message)));
     }
     return function () {
-        return React.createElement('div', {}, React.createElement('div', { 'className': 'wrap' }, React.createElement('div', { 'id': 'navbar' }, React.createElement('img', {
+        return React.createElement('div', { 'key': this.state.show_id + this.state.my_id }, React.createElement('div', { 'className': 'wrap' }, React.createElement('div', { 'id': 'navbar' }, React.createElement('img', {
             'src': '/images/logo2.png',
             'id': 'logo',
             'onClick': this.go_to.bind(this, '/')

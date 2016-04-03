@@ -1,4 +1,4 @@
-<div>
+<div key="{this.state.show_id}{this.state.my_id}">
   <div class="wrap">
     <div id="navbar">
       <img src="/images/logo2.png" id="logo"

@@ -147,6 +147,13 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
             this.state.artist = artists[this.props.params.artist_id - 1];
         if (this.state.my_id == 'countdown')
             timer();
+        else {
+            running_timer = false;
+            me.setState({time_ends: false,
+                         minutes_left: false,
+                         countdown: false,
+                         seconds_left: false}); }
+            
         var webrtc = new SimpleWebRTC({
             // the id/element dom element that will hold "our" video
             localVideoEl: 'localVideo',

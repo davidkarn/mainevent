@@ -1,0 +1,81 @@
+<div>
+  <div class="wrap">
+    <div id="navbar" class="browse">
+      <img src="/images/logo2.png" id="logo" />
+      <div class="pull-right">
+        <i class="fa fa-search"></i>
+        <img class="avatar" src="{lookup_gravatar('david@webdever.net', 70)}" />
+      </div>
+    </div>
+    <div style="text-align: center">
+    <div id="videos-list">
+      <div class="a-video" onClick="{this.go_to.bind(this, '/show/test/test')}">
+        <strong class="title">TacocaT<br /><small>Doc Marten's</small></strong>
+        <div class="live-now">Live now</div>
+        <div class="a-video-wrapper">
+          <video src="/images/video4.webm" loop="loop" autoplay="autoplay" muted="muted" />
+        </div>
+      </div>
+      <div class="a-video" onClick="{this.go_to.bind(this, '/show/test/test')}">
+        <strong class="title">Camp Lo<br /><small>Tractor Tavern</small></strong>
+        <div class="live-now">Live now</div>
+        <div class="a-video-wrapper">
+          <video src="/images/video1.webm" loop="loop" autoplay="autoplay" muted="muted" />
+        </div>
+      </div>
+     <div class="a-video" onClick="{this.go_to.bind(this, '/show/test/test')}">
+       <strong class="title">Lion's Ambition<br /><small>The Showbox</small></strong>
+        <div class="live-now">Live now</div>
+        <div class="a-video-wrapper">
+          <video src="/images/video2.webm" loop="loop" autoplay="autoplay" muted="muted" />
+        </div>
+      </div>
+      <div class="a-video" onClick="{this.go_to.bind(this, '/show/test/test')}">
+        <strong class="title">The Classic Crime<br/><small>The Triple Door</small></strong>
+        <div class="live-now">Live Now</div>
+        <div class="a-video-wrapper">
+          <video src="/images/video5.webm" loop="loop" autoplay="autoplay" muted="muted" />
+        </div>
+      </div>
+      
+      <div class="a-video" onClick="{this.go_to.bind(this, '/show/test/test')}">
+        <strong class="title">Band of Horses</strong>
+        <div class="live-now">Live in 8m</div>
+        <div class="a-video-wrapper">
+          <img class="video" src="/images/band_of_horses.jpg" autoplay="autoplay" muted="muted" />
+        </div>
+      </div>      
+      <div class="a-video" onClick="{this.go_to.bind(this, '/show/test/test')}">
+        <strong class="title">Grand Archives</strong>
+        <div class="live-now">Live in 18m</div>
+        <div class="a-video-wrapper">
+          <img class="video" src="/images/grand_archives.jpg" autoplay="autoplay" muted="muted" />
+        </div>
+      </div>      
+      <div class="a-video" onClick="{this.go_to.bind(this, '/show/test/test')}">
+        <strong class="title">Band Name at Venue</strong>
+        <div class="live-now">Live in 15m</div>
+        <div class="a-video-wrapper">
+          <video src="/images/video3.webm"  muted="muted" loop="loop" autoplay="autoplay"/>
+        </div>
+      </div>
+      <div class="a-video" onClick="{this.go_to.bind(this, '/show/test/test')}">
+        <strong class="title">Minus the Bear</strong>
+        <div class="live-now">Live in 18m</div>
+        <div class="a-video-wrapper">
+          <img class="video" src="/images/minus_the_bear.jpg" autoplay="autoplay" muted="muted" />
+        </div>
+      </div>      
+ 
+      <div class="a-video" onClick="{this.go_to.bind(this, '/show/test/test')}">
+        <strong class="title">The Head and the Heart</strong>
+        <div class="live-now">Live in 38m</div>
+        <div class="a-video-wrapper">
+          <img class="video" src="/images/head_and_heart.jpg" autoplay="autoplay" muted="muted" />
+        </div>
+      </div>      
+
+    </div>
+  </div>
+</div>
+</div>

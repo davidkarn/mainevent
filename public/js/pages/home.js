@@ -63,6 +63,7 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
         chat();
 //        return init_demo();
         if (this.state.we_setup) return;
+        console.log('setting_it_up');
         this.state.we_setup = true;
         if (this.props.params.show_id)
             this.state.show_id = this.props.params.show_id;
@@ -212,12 +213,33 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
     function redraw() {
         this.setState({}); }
 
+    function go_to_(where_to)  {
+        this.state.we_setup = false;
+        go_to(where_to); }
+
+    function get_props(new_props) {
+        console.log('get_props');
+        var local_stream;
+        var connection = undefined;
+        var me = undefined;
+        var sessions = {};
+        var session = undefined;
+        var localStream = undefined;
+        var peer_id = 'igtqpgrz6g808uxr50';
+        var getUserMedia = navigator.getUserMedia
+                || navigator.webkitGetUserMedia
+                || navigator.mozGetUserMedia;
+        this.state.we_setup = false;
+        this.setup(); }
+    
     return React.createClass({
         displayName:         'home',
-        go_to:                go_to,
+        go_to:                go_to_,
+        setup:                setup,
         give_a_tip:           give_a_tip,
         gave_a_tip:           gave_a_tip,
-        componentDidMount:    setup,
+        componentDidMount:    get_props,
+//        componentWillMount: get_props,
         get_participants:     get_participants,
         add_participant:      add_participant,
         make_big:             make_big,

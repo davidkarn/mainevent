@@ -228,3 +228,77 @@ h1 {
   height:80px;
   overflow: hidden;
   border: rgba(20,20,20,0.33); }
+
+#videos-list {
+  padding: 50px;
+  text-align: center;
+  margin: auto;
+  padding-top: 0; }
+
+
+.a-video .title small {
+  font-weight: normal;
+  font-size: 12px; }
+
+.a-video:hover {
+  opacity: 1;
+  transition: opacity 0.5s; }
+.a-video {
+text-align: left;
+  position: relative;
+  opacity: 0.89;
+  cursor: pointer;
+  display: inline-block;
+    transition: opacity 0.5s; 
+  width: 400px;
+  height: 250px;
+  margin: 0;
+  margin-right: 5px;  background-color: #f4f4f4;
+}
+
+.a-video .title{
+  width: 100%;
+  height: 100%;
+  margin: 0px; 
+  position: absolute;
+  display: inline;
+  font-size: 20px;
+  padding-bottom: 0;
+  line-height: 1.2;
+  color: #fff;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.56) 5%,rgba(0,0,0,0.31) 19%,rgba(0,0,0,0) 36%); 
+  padding: 18px;
+  padding-top: 12px;
+}
+.a-video video{
+  width: 400px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.a-video img.video{
+  width: 400px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.a-video .a-video-wrapper{
+    width: 400px;
+  height: 250px;
+  overflow: hidden; }
+
+.a-video .live-now {
+  background-color:rgba(236, 63, 36, 0.85);
+  color: white;
+  font-size: 14px;
+  padding: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  text-align: center;
+  position: absolute;
+  bottom: 20px;
+  left: 20px; }
+
+#navbar.browse {
+  padding-right: 90px;
+  padding-left: 90px; }

@@ -23,7 +23,8 @@ define([
     return function () {
         return React.createElement('div', {}, React.createElement('div', { 'className': 'wrap' }, React.createElement('div', { 'id': 'navbar' }, React.createElement('img', {
             'src': '/images/logo2.png',
-            'id': 'logo'
+            'id': 'logo',
+            'onClick': this.go_to.bind(this, '/')
         }), React.createElement('div', { 'className': 'pull-right' }, React.createElement('i', { 'className': 'fa fa-search' }), React.createElement('img', {
             'className': 'avatar',
             'src': lookup_gravatar('david@webdever.net', 70)
@@ -66,7 +67,11 @@ define([
             'src': '/images/facebook.png',
             'onClick': this.gave_a_tip,
             'id': 'fb-signin'
-        })) : null), React.createElement.apply(this, [
+        })) : null), React.createElement('video', {
+            'src': '/images/video4.webm',
+            'autoPlay': 'autoplay',
+            'style': { display: 'none' }
+        }), React.createElement.apply(this, [
             'div',
             { 'id': 'chatroom' },
             _.map(this.state.messages.slice(-15), repeatMessage2.bind(this)),

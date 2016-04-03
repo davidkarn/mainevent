@@ -465,7 +465,7 @@ function query_parameter(key) {
          id: 3,
          venue: "Columbia City Theater",
          image: "/images/video6.webm" },       
-        {name: 'Camp Lo',
+/*        {name: 'Camp Lo',
          live_in: 0,
          id: 4,
          venue: 'Tractor Tavern',
@@ -479,7 +479,7 @@ function query_parameter(key) {
          live_in: 0,
          id: 6,
          venue: 'The Triple Door',
-         image: '/images/video5.webm'},
+         image: '/images/video5.webm'},*/
         {name: 'Band of Horses',
          live_in: 8,
          id: 7,

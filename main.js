@@ -5,6 +5,8 @@ var express         = require('express'),
 var bodyParser      = require('body-parser');
 var cookieParser    = require('cookie-parser');
 var session         = require('express-session');
+var sockets         = require('signal-master/sockets');
+
 
 var app             = express();
 var port            = process.env.PORT || 8080;
@@ -13,6 +15,11 @@ var courses         = [];
 var assignments     = [];
 
 app.listen(port);
+
+//var app2 = express();
+//var server = app2.listen(8888);
+//sockets(server, {});
+
 
 function curry(that) {
     var args = to_array(arguments).slice(1);

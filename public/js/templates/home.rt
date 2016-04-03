@@ -28,7 +28,7 @@
                  onClick="{this.make_big.bind(this, participant)}">
               <div class="video-wrapper">
                 <video id="local_video"
-                       muted="{participant.has_audio ? 'false' : 'muted'}"
+                       muted="muted"
                        src="{participant.src}"
                        autoplay="autoplay"></video>
               </div>

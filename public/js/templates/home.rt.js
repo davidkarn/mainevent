@@ -9,7 +9,7 @@ define([
             'onClick': this.make_big.bind(this, participant)
         }, React.createElement('div', { 'className': 'video-wrapper' }, React.createElement('video', {
             'id': 'local_video',
-            'muted': participant.has_audio ? 'false' : 'muted',
+            'muted': 'muted',
             'src': participant.src,
             'autoPlay': 'autoplay'
         }))), React.createElement('div', { 'className': 'participant-name hidden' }, participant.name));

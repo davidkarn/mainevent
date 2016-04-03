@@ -55,7 +55,7 @@
     <div id="chatroom">
       <div class="message"
            rt-repeat="message in this.state.messages.slice(-15)">
-        <img class="avatar" src="{lookup_gravatar(message.email, 70)}" />
+        <img class="avatar" src="{message.url}" />
         <div class="message-part">
           <strong class="name">{message.name}</strong><br />
           <span> {message.message}</span>

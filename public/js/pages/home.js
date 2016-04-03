@@ -11,16 +11,24 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
         || navigator.webkitGetUserMedia
         || navigator.mozGetUserMedia;
 
-    var people = [{name: 'david', email: 'david@webdever.net'},
-                  {name: 'bill123142', email: ''},
-                  {name: 'Jim Jones', email: ''},
-                  {name: 'Colonels4nders', email: ''},
-                  {name: 'Bernie Sandars', email: ''}];
+    var people = [{name: 'david', email: 'david@webdever.net', url: lookup_gravatar('david@webdever.net', 70)},
+                  {name: 'bill123142', email: '', url: 'https://yt3.ggpht.com/-AbhjhawAzT4/AAAAAAAAAAI/AAAAAAAAAAA/dHjAHcytyJ8/s48-c-k-no-rj-c0xffffff/photo.jpg'},
+                  {name: 'Jim Jones', email: '', url: 'https://yt3.ggpht.com/--LQfdsFsCCg/AAAAAAAAAAI/AAAAAAAAAAA/dTDXZh08IKo/s48-c-k-no-rj-c0xffffff/photo.jpg'},
+                  {name: 'Colonels4nders', email: '', url: 'https://yt3.ggpht.com/-ETIiw_y1mm4/AAAAAAAAAAI/AAAAAAAAAAA/McbkOJUtJ14/s48-c-k-no-rj-c0xffffff/photo.jpg'},
+                  {name: 'Bernie Sandars', email: '', url: 'https://yt3.ggpht.com/-yLlO9YEUpjs/AAAAAAAAAAI/AAAAAAAAAAA/rMi-vgaKEBI/s48-c-k-no-rj-c0xffffff/photo.jpg'},
+                  {name: 'EVILpeanut', email: '', url: 'https://5minutemarvels.files.wordpress.com/2012/01/mpsmall.jpg'},
+                  {name: '23422ofJustice', email: '', url: 'https://yt3.ggpht.com/-eN4a_aghN4Q/AAAAAAAAAAI/AAAAAAAAAAA/5aJg82EwHaQ/s32-c-k-no-rj-c0xffffff/photo.jpg'},
+                   {name: 'fruityloop3008', email: '', url: 'https://yt3.ggpht.com/-BNqSZMoSnpE/AAAAAAAAAAI/AAAAAAAAAAA/T6a0UZFoJTQ/s48-c-k-no-rj-c0xffffff/photo.jpg'}];
     var messages = ['Awesome show',
                     'I cant believe he just did that',
                     'What?',
                     'hello',
                     'what are you talking about?',
+                    '@fruityloop3008 I know right',
+                    '@Colenels4nders what do you mean',
+                    'huh?',
+                    'blargh!',
+                    'nooooo!!!',
                     'thats awful',
                     'wtf',
                     ':D',
@@ -37,10 +45,11 @@ define(['react', 'lodash', 'templates/home.rt'], function (React, _, home_templa
     function generate_message() {
         var person = random_list_member(people);
         var message = random_list_member(messages);
-        me.state.messages.push({name: person.name,
-                                email: person.email,
-                                message: message}); 
-        me.setState({messages: me.state.messages}); }
+        me.state.messages.push({name:      person.name,
+                                email:     person.email,
+                                url:       person.url,
+                                message:   message}); 
+        me.setState({messages: me.state.messages.slice(-40)}); }
 
     function chat() {
         generate_message();

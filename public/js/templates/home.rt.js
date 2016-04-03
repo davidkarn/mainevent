@@ -17,7 +17,7 @@ define([
     function repeatMessage2(message, messageIndex) {
         return React.createElement('div', { 'className': 'message' }, React.createElement('img', {
             'className': 'avatar',
-            'src': lookup_gravatar(message.email, 70)
+            'src': message.url
         }), React.createElement('div', { 'className': 'message-part' }, React.createElement('strong', { 'className': 'name' }, message.name), React.createElement('br', {}), React.createElement('span', {}, ' ', message.message)));
     }
     return function () {

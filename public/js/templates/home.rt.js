@@ -74,7 +74,7 @@ define([
             'onClick': this.gave_a_tip,
             'id': 'fb-signin'
         })) : null), React.createElement('video', {
-            'src': '/images/video6.webm',
+            'src': '/images/video7.webm',
             'loop': 'loop',
             'autoPlay': 'autoplay',
             'style': { display: 'none' }

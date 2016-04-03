@@ -123,7 +123,7 @@
              id="fb-signin" />
       </div>
     </div>
-    <video src="/images/video6.webm" loop="loop" autoplay="autoplay" style="display:none"/>
+    <video src="/images/video7.webm" loop="loop" autoplay="autoplay" style="display:none"/>
     <div id="chatroom">
       <div class="message"
            rt-repeat="message in this.state.messages.slice(-15)">
